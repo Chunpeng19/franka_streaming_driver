@@ -4,6 +4,7 @@ The driver is used to send franka joint state and receive joint command from cli
 ## Requirement
 1. ROS Humble
 2. [libfranka](https://github.com/frankaemika/libfranka)
+3. [real-time kernel](https://frankaemika.github.io/docs/installation_linux.html#setting-up-the-real-time-kernel)
 
 ## Run the package
 1. After requirement installation and workspace setup, clone and build the package.
@@ -15,7 +16,7 @@ source install/setup.bash
 ros2 run franka_streaming_driver franka_interface robot_ip
 ```
 
-3. Run the teleop example code (optional):
+3. Run the teleop example code (optional, the example move joint 4, 5, 7 back and forward):
 ```
 ros2 run franka_streaming_driver joint_teleop
 ```
