@@ -109,4 +109,8 @@ private:
                                                        2.8065 - kLimitEps_, 4.5169 - kLimitEps_, 3.0159 - kLimitEps_}};
     const std::array<double, 7> kMinJointPosition_ = {{-2.7437 + kLimitEps_, -1.7837 + kLimitEps_, -2.9007 + kLimitEps_, -3.0421 + kLimitEps_,
                                                        -2.8065 + kLimitEps_, 0.5445 + kLimitEps_, -3.0159 + kLimitEps_}};
+    const std::array<double, 7> kMaxJointStiffness_ = {{3000, 3000, 3000, 2500, 2500, 2000, 2000}};
+    const std::array<double, 7> kMinJointStiffness_ = {{0, 0, 0, 0, 0, 0, 0}};
+    const std::array<double, 7> kMaxJointDamping_ = {{100, 100, 100, 80, 80, 70, 70}};
+    const std::array<double, 7> kMinJointDamping_ = {{0, 0, 0, 0, 0, 0, 0}};
 };

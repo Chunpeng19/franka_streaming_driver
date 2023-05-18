@@ -97,7 +97,7 @@ private:
     std::array<double, 7> dq_;
     std::array<double, 7> tau_J_;
     std::array<double, 7> tau_J_ext_;
-    std::array<double, 7> Kp_ = {{600.0, 600.0, 600.0, 600.0, 250.0, 150.0, 50.0}};
+    std::array<double, 7> Kp_ = {{600.0, 600.0, 600.0, 600.0, 250.0, 150.0, 150.0}};
     std::array<double, 7> Kd_ = {{50.0, 50.0, 50.0, 50.0, 20.0, 20.0, 15.0}};
     rclcpp::Time start_time_;
     franka_streaming_driver::msg::FrankaJointCmd message_;

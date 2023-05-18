@@ -58,6 +58,9 @@ void FrankaInterface::robot_state_update(std::shared_ptr<franka::Model> model, c
     tau_J_d_saturated_ = saturation(kMaxJointTorque_, kMinJointTorque_, tau_J_d_);
     tau_J_d_rate_limited_ = franka::limitRate(franka::kMaxTorqueRate, tau_J_d_saturated_, tau_J_d_saturated_last_);
 
+    Kp_filtered_ = saturation(kMaxJointStiffness_, kMinJointStiffness_, Kp_filtered_);
+    Kd_filtered_ = saturation(kMaxJointDamping_, kMinJointDamping_, Kd_filtered_);
+
     for (size_t i = 0; i < 7; i++)
     {
         dq_d_saturated_last_[i] = dq_d_saturated_[i];
