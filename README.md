@@ -22,8 +22,9 @@ ros2 run franka_streaming_driver joint_teleop
 
 ## Controller insider interface
 The interface is based on joint torque controller in 'libfranka', the commanded torque is
-
-<img src="https://render.githubusercontent.com/render/math?math=\tau_{cmd} = K_p (q_d - q) + K_d (\dot{q}_d - \dot{q}) + \tau_d + \tau_{Coriolis}">
+```
+$$\tau_{cmd} = K_p * (q_d - q) + K_d * (\dot{q}_d - \dot{q}) + \tau_d + \tau_{Coriolis}$$
+```
 
 Client obtains the following joint states by subscribing to *"/franka_joint_states"* with a cutomized 'FrankaJointState' message in the package.
 - float64[] position ~ joint angles (rad)
