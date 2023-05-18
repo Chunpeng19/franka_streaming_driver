@@ -13,7 +13,7 @@ The driver is used to send franka joint state and receive joint command from cli
 ```
 cd $<workspace>
 source install/setup.bash
-ros2 run franka_streaming_driver franka_interface robot_ip
+ros2 run franka_streaming_driver franka_interface <robot_ip>
 ```
 
 3. Run the teleop example code (optional, the example move joint 4, 5, 7 back and forward):
