@@ -13,13 +13,14 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
-find_package(franka_streaming_driver REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/FrankaJointState.msg"
   "msg/FrankaJointCmd.msg"
   DEPENDENCIES builtin_interfaces std_msgs
 )
+
+rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} "rosidl_typesupport_cpp")
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
@@ -35,8 +36,7 @@ target_include_directories(franka_interface PRIVATE include/franka_streaming_dri
 ament_target_dependencies(franka_interface
   rclcpp 
   std_msgs 
-  sensor_msgs
-  franka_streaming_driver)
+  sensor_msgs)
 
 add_executable(joint_teleop src/joint_teleop.cpp)
 target_link_libraries(joint_teleop "${cpp_typesupport_target}")
@@ -44,8 +44,7 @@ target_link_libraries(joint_teleop "${cpp_typesupport_target}")
 ament_target_dependencies(joint_teleop
   rclcpp 
   std_msgs 
-  sensor_msgs
-  franka_streaming_driver)
+  sensor_msgs)
 
 install(TARGETS
   franka_interface
