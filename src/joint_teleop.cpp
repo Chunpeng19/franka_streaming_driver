@@ -49,7 +49,9 @@ private:
         auto time = this->get_clock()->now() - start_time_;
         auto delta_angle = M_PI / 8.0 * (1 - std::cos(M_PI / 2.5 * time.seconds()));
         q_d_ = init_q_;
+        q_d_.at(3) += delta_angle;
         q_d_.at(4) += delta_angle;
+        q_d_.at(6) += delta_angle;
 
         message_.header.stamp = rclcpp::Clock(RCL_ROS_TIME).now();
 
